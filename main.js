@@ -9,7 +9,7 @@ fetch("https://api.openai.com/v1/completions", {
   },
   body: JSON.stringify({
     "model": "text-davinci-003",
-    "prompt": "what is amplitude analytics",
+    "prompt": prompt,
     "max_tokens": 250,
     "temperature": 0.7
   })
