@@ -4,8 +4,7 @@ const apiKey = "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";
 fetch(" https://scai.herokuapp.com/", {
   method: "POST",
   headers: {
-    "Content-Type": "application/json",
-    "Authorization": `Bearer ${apiKey}`
+    "Content-Type": "application/json"
   },
   body: JSON.stringify({
     prompt: prompt,
