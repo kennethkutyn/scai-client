@@ -7,12 +7,10 @@ fetch(" https://scai.herokuapp.com/", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    model: "text-davinci-002",
-    prompt: prompt,
-    temperature: 1.0,
-    max_tokens: 50,
-    n: 1,
-    stop: "\n"
+    "model": "text-davinci-003",
+    "prompt": "Write a limmerick about APIs",
+    "max_tokens": 250,
+    "temperature": 0.7
   })
 })
 .then(response => response.json())
