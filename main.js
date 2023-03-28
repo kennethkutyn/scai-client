@@ -7,7 +7,9 @@ fetch(" https://scai.herokuapp.com/", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
+    model: text-davinci-002,
     prompt: prompt,
+    temperature: 1.0,
     max_tokens: 50,
     n: 1,
     stop: "\n"
