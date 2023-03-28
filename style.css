@@ -1,0 +1,49 @@
+/* Apply some basic styles to the body and header */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #005B9A;
+    color: white;
+    padding: 1rem;
+  }
+  
+  /* Style the main content section */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  
+  button {
+    background-color: #005B9A;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #008CFF;
+  }
+  
+  /* Style the footer */
+  footer {
+    background-color: #EFEFEF;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
