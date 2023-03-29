@@ -88,7 +88,7 @@ function responseReady(data) {
   const spacer = document.createElement("a");
   // Set the inner text to 
   spacer.innerText = "      ";
-  mainElement.appendChild(linksElement2);
+  mainElement.appendChild(spacer);
 
   const linksElement2 = document.createElement("a");
   // Set the inner text to 
