@@ -24,6 +24,19 @@ function submitForm() {
 
   const prompt = "write a briefing doc for a sales person at Amplitude Analytics. They are going to a meeting with a " + role + " at " + companyNameInput + ". The doc should includ several sections: 1. The main concerns and focuses of a person in this role. 2. The Amplitude functionality that may be most relevant to this person. 3. Value selling consdierations - how to map Amplitude solutions to value drivers this person cares about."
 
+  document.getElementById('input-form').remove()
+  // Get the element with ID "Main"
+  const mainElement = document.getElementById("main");
+  // Create a new h1 element
+  const loadingElement = document.createElement("h1");
+  // Set the inner text to "loading"
+  loadingElement.innerText = "Loading...";
+  // Set the ID attribute to "loading"
+  loadingElement.setAttribute("id", "loading");
+  // Append the h1 element to the main element
+  mainElement.appendChild(loadingElement);
+
+
   fetch("https://scai.herokuapp.com/v1/completions", {
   method: "POST",
   headers: {
@@ -37,7 +50,13 @@ function submitForm() {
   })
 })
 .then(response => response.json())
-.then(data => console.log(data.choices));
+.then(data => responseReady(data.choices));
 
+}
+
+function responseReady(data) {
+  console.log(data);
+  document.getElementById('loading').remove();
+  
 }
 
