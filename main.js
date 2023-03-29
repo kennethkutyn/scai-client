@@ -58,5 +58,15 @@ function responseReady(data) {
   console.log(data);
   document.getElementById('loading').remove();
 
+  const mainElement = document.getElementById("main");
+  // Create a new h1 element
+  const loadingElement = document.createElement("p");
+  // Set the inner text to "loading"
+  responseElement.innerText = data[0].text;
+  // Set the ID attribute to "loading"
+  responseElement.setAttribute("id", "response");
+  // Append the h1 element to the main element
+  mainElement.appendChild(responseElement);
+
 }
 
