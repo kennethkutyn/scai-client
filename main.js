@@ -70,16 +70,27 @@ function responseReady(data) {
   // Append the h1 element to the main element
   mainElement.appendChild(responseElement);
 
-  const linksElement = document.createElement("p");
+  const linksElement = document.createElement("a");
   // Set the inner text to 
   linksElement.innerText = "Customer Stories can be found here";
   // Set the ID attribute
   linksElement.setAttribute("id", "customer-stories");
+
+  linksElement.setAttribute("target", "_blank");
   // Append the h1 element to the main element
   linksElement.setAttribute("href", "https://docs.google.com/presentation/d/1MC6F2xUXEAXOEnp8-a9tnIfoXvXVXo4YUia6o0hQtz4/edit#slide=id.g119542d2666_0_0" );
   mainElement.appendChild(linksElement);
 
+  const linksElement2 = document.createElement("a");
+  // Set the inner text to 
+  linksElement2.innerText = "Value selling resources can be found here";
+  // Set the ID attribute
+  linksElement2.setAttribute("id", "value-selling");
 
+  linksElement2.setAttribute("target", "_blank");
+  // Append the h1 element to the main element
+  linksElement2.setAttribute("href", "https://docs.google.com/presentation/d/1Cva1vkCkVxa6NXW3y5FxpEP7BF-81YjTQGjGdoExwGE/edit#slide=id.g13e4e65eb19_1_3036" );
+  mainElement.appendChild(linksElement);
 
 }
 
