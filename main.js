@@ -60,7 +60,7 @@ function responseReady(data) {
 
   const mainElement = document.getElementById("main");
   // Create a new h1 element
-  const loadingElement = document.createElement("p");
+  const responseElement = document.createElement("p");
   // Set the inner text to "loading"
   responseElement.innerText = data[0].text;
   // Set the ID attribute to "loading"
