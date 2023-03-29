@@ -90,7 +90,7 @@ function responseReady(data) {
   linksElement2.setAttribute("target", "_blank");
   // Append the h1 element to the main element
   linksElement2.setAttribute("href", "https://docs.google.com/presentation/d/1Cva1vkCkVxa6NXW3y5FxpEP7BF-81YjTQGjGdoExwGE/edit#slide=id.g13e4e65eb19_1_3036" );
-  mainElement.appendChild(linksElement);
+  mainElement.appendChild(linksElement2);
 
 }
 
