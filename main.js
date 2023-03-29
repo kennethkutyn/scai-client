@@ -24,7 +24,7 @@ function submitForm() {
 
   const prompt = "write a briefing doc for a sales person at Amplitude Analytics. They are going to a meeting with a " + role + " at " + companyNameInput + ". The doc should includ several sections: 1. The main concerns and focuses of a person in this role. 2. The Amplitude functionality that may be most relevant to this person. 3. Value selling consdierations - how to map Amplitude solutions to value drivers this person cares about."
 
-  fetch("https://scai.herokuapp.com/", {
+  fetch("https://scai.herokuapp.com/v1/completions", {
   method: "POST",
   headers: {
     "Content-Type": "application/json", 
