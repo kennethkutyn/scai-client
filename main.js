@@ -6,6 +6,10 @@ function submitForm() {
     role = document.getElementById('option2').value;
   } else if (document.getElementById('option3').checked) {
     role = document.getElementById('option3').value;
+  } else if (document.getElementById('option4').checked) {
+    role = document.getElementById('option4').value;
+  } else if (document.getElementById('option5').checked) {
+    role = document.getElementById('option5').value;
   } else {
     role = document.getElementById('other-text').value;
   }
@@ -80,6 +84,11 @@ function responseReady(data) {
   // Append the h1 element to the main element
   linksElement.setAttribute("href", "https://docs.google.com/presentation/d/1MC6F2xUXEAXOEnp8-a9tnIfoXvXVXo4YUia6o0hQtz4/edit#slide=id.g119542d2666_0_0" );
   mainElement.appendChild(linksElement);
+
+  const spacer = document.createElement("a");
+  // Set the inner text to 
+  spacer.innerText = "      ";
+  mainElement.appendChild(linksElement2);
 
   const linksElement2 = document.createElement("a");
   // Set the inner text to 
