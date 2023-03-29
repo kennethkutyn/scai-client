@@ -16,8 +16,8 @@ function submitForm() {
   console.log('Company Name:', companyNameInput);
 
   const prompt = 'Provide a briefing doc for a sales person at amplitude analytics to talk to the ' + role + ' of ' + companyNameInput + '. Include the following sections:' +
-                  '1. company background - 2-3 sentences on what the company does, their products, and their business model' +
-                  '2. Competitors - list the companies top 3 competitors' +
+                  '1. company background - 2-3 sentences on what ' + companyNameInput + ' does, their products, and their business model' +
+                  '2. Competitors - list ' + companyNameInput + '  top 3 competitors' +
                   '3. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
                   '4. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest this person' +
                   '5. Objections - Identify 3 objections this person might have' +
