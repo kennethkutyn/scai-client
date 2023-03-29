@@ -18,7 +18,7 @@ function submitForm() {
   const companyNameInput = document.getElementById('company-name-input').value;
   const companyLocationInput = document.getElementById('company-location-input').value;
 
-  console.log('Prospect Role', role);
+  console.log('Prospect Role:', role);
   console.log('Company Name:', companyNameInput);
   console.log('Company Location', companyLocationInput);
 
@@ -57,6 +57,6 @@ function submitForm() {
 function responseReady(data) {
   console.log(data);
   document.getElementById('loading').remove();
-  
+
 }
 
