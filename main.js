@@ -21,7 +21,7 @@ function submitForm() {
                   '3. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
                   '4. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest this person' +
                   '5. Objections - Identify 3 objections this person might have' +
-                  '6. Value selling - identify 3 key ways Amplitude can drive value for this persona and company';
+                  '6. Value selling - identify 3 key ways Amplitude can drive value for this persona and company, specifically as it relates to analysis of their customer experiences';
 
   document.getElementById('input-form').remove()
   // Get the element with ID "Main"
