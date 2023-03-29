@@ -70,12 +70,10 @@ function responseReady(data) {
   // Append the h1 element to the main element
   mainElement.appendChild(responseElement);
 
-  const mainElement = document.getElementById("main");
-  // Create a new h1 element
   const linksElement = document.createElement("p");
-  // Set the inner text to "loading"
+  // Set the inner text to 
   linksElement.innerText = "Customer Stories can be found here";
-  // Set the ID attribute to "loading"
+  // Set the ID attribute
   linksElement.setAttribute("id", "customer-stories");
   // Append the h1 element to the main element
   linksElement.href = "https://docs.google.com/presentation/d/1MC6F2xUXEAXOEnp8-a9tnIfoXvXVXo4YUia6o0hQtz4/edit#slide=id.g119542d2666_0_0";
