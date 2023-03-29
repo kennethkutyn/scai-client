@@ -14,9 +14,24 @@
     </header>
     
     <main>
-      <p>This is a basic web app.</p>
-      <button id="my-button">Click me</button>
-    </main>
+      <h1>Prospect Role</h1>
+    <input type="radio" id="option1" name="options" value="Product Leader">
+    <label for="option1">Product Leader</label><br>
+    <input type="radio" id="option2" name="options" value="Data Leader">
+    <label for="option2">Data Leader</label><br>
+    <input type="radio" id="option3" name="options" value="Engineering Leader">
+    <label for="option3">Engineering Leader</label><br>
+    <input type="radio" id="other" name="options" value="Other">
+    <label for="other">Other:</label>
+    <input type="text" id="other-text" name="other-text"><br>
+
+    <h1>Company Details</h1>
+    <label for="other-input">Company Name:</label>
+    <input type="text" id="company-name-input" name="company-name-input"><br>
+    <label for="other-input">Company Location:</label>
+    <input type="text" id="company-location-input" name="company-location-input"><br>
+
+    <button onclick="submitForm()">Submit</button>
     
     <footer>
       <p>&copy; 2023 My Web App</p>
