@@ -1,8 +1,3 @@
-const prompt = "Hello, how are you?";
-const apiKey = "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";
-
-
-
 function submitForm() {
   let selectedOption;
   if (document.getElementById('option1').checked) {
@@ -16,13 +11,17 @@ function submitForm() {
   }
 
   const companyNameInput = document.getElementById('company-name-input').value;
-  const companyLocationInput = document.getElementById('company-location-input').value;
 
   console.log('Prospect Role:', role);
   console.log('Company Name:', companyNameInput);
-  console.log('Company Location', companyLocationInput);
 
-  const prompt = "write a briefing doc for a sales person at Amplitude Analytics. They are going to a meeting with a " + role + " at " + companyNameInput + ". The doc should includ several sections: 1. The main concerns and focuses of a person in this role. 2. The Amplitude functionality that may be most relevant to this person. 3. Value selling consdierations - how to map Amplitude solutions to value drivers this person cares about."
+  const prompt = 'Provide a briefing doc for a sales person at amplitude analytics to talk to the ' + role + ' of ' + companyNameInput + '. Include the following sections:' +
+                  '1. company background - 2-3 sentences on what the company does, their products, and their business model' +
+                  '2. Competitors - list the companies top 3 competitors' +
+                  '3. Priorities for CEO - 3 sentences on the likely focus/priorities for the CEO of this company' +
+                  '4. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest this person' +
+                  '5. Objections - Identify 3 objections this person might have' +
+                  '6. Value selling - identify 3 key ways Amplitude can drive value for this persona and company';
 
   document.getElementById('input-form').remove()
   // Get the element with ID "Main"
