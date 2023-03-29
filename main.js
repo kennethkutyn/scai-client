@@ -18,7 +18,7 @@ function submitForm() {
   const prompt = 'Provide a briefing doc for a sales person at amplitude analytics to talk to the ' + role + ' of ' + companyNameInput + '. Include the following sections:' +
                   '1. company background - 2-3 sentences on what the company does, their products, and their business model' +
                   '2. Competitors - list the companies top 3 competitors' +
-                  '3. Priorities for CEO - 3 sentences on the likely focus/priorities for the CEO of this company' +
+                  '3. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
                   '4. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest this person' +
                   '5. Objections - Identify 3 objections this person might have' +
                   '6. Value selling - identify 3 key ways Amplitude can drive value for this persona and company';
@@ -44,7 +44,7 @@ function submitForm() {
   body: JSON.stringify({
     "model": "text-davinci-003",
     "prompt": prompt,
-    "max_tokens": 250,
+    "max_tokens": 1000,
     "temperature": 0.7
   })
 })
