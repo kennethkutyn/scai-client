@@ -76,7 +76,7 @@ function responseReady(data) {
   // Set the ID attribute
   linksElement.setAttribute("id", "customer-stories");
   // Append the h1 element to the main element
-  linksElement.href = "https://docs.google.com/presentation/d/1MC6F2xUXEAXOEnp8-a9tnIfoXvXVXo4YUia6o0hQtz4/edit#slide=id.g119542d2666_0_0";
+  linksElement.setAttribute("href", "https://docs.google.com/presentation/d/1MC6F2xUXEAXOEnp8-a9tnIfoXvXVXo4YUia6o0hQtz4/edit#slide=id.g119542d2666_0_0" );
   mainElement.appendChild(linksElement);
 
 
