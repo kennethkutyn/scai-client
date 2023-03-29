@@ -19,11 +19,13 @@ function submitForm() {
                   '1. company background - 2-3 sentences on what ' + companyNameInput + ' does, their products, and their business model' +
                   '2. Competitors - list ' + companyNameInput + '  top 3 competitors' +
                   '3. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
-                  '4. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest the ' +role +' at ' + companyNameInput +
-                  '5. Objections - Identify 3 objections the ' + role + ' might have' +
+                  '4. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases. ' +
+                  '5. Competition - mention 3 specific features or solutions of Amplitude  that will be relevant for the ' + role + ' of ' + companyNameInput + ' where Amplitude has a competitive advantage over other analytics solutions' +
+                  '6. Objections - Identify 3 objections the ' + role + ' might have' +
                   '6. Value selling - identify 3 key ways Amplitude can drive value for this persona and company, specifically as it relates to analysis of their customer experiences';
 
-  document.getElementById('input-form').remove()
+  document.getElementById('input-form').remove();
+  document.getElementById('app-description').remove()
   // Get the element with ID "Main"
   const mainElement = document.getElementById("main");
   // Create a new h1 element
