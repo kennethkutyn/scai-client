@@ -24,6 +24,7 @@ function submitForm() {
                   '2. Trends - list 2-3 trends in  ' + companyNameInput + 's industry' +
                   '3. Competitors - list ' + companyNameInput + '  top 3 direct competitors, and mention if there is a well-known internation company with a similar business model ' +
                   '4. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
+                  '4. Tech Stack - brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store and analyze user behaviour. Only include software products that you have a high degree of certainty they use. Dont list any products just because they are commonly used for similar purposes or similar companies.' +
                   '5. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases. ' +
                   '6. Competition - mention 3 specific features or solutions of Amplitude  that will be relevant for the ' + role + ' of ' + companyNameInput + ' where Amplitude has a competitive advantage over other analytics solutions' +
                   '7. Objections - Identify 3 objections the ' + role + ' might have' +
@@ -47,6 +48,7 @@ function submitForm() {
   method: "POST",
   headers: {
     "Content-Type": "application/json", 
+    "type": "AI"
   },
   body: JSON.stringify({
     "model": "text-davinci-003",
@@ -74,7 +76,11 @@ function responseReady(data) {
   // Append the h1 element to the main element
   mainElement.appendChild(responseElement);
 
-  const linksElement = document.createElement("a");
+  document.getElementById("helpful-links").style.display = "block";
+
+
+
+/*  const linksElement = document.createElement("a");
   // Set the inner text to 
   linksElement.innerText = "Customer Stories can be found here";
   // Set the ID attribute
@@ -100,6 +106,20 @@ function responseReady(data) {
   // Append the h1 element to the main element
   linksElement2.setAttribute("href", "https://docs.google.com/presentation/d/1Cva1vkCkVxa6NXW3y5FxpEP7BF-81YjTQGjGdoExwGE/edit#slide=id.g13e4e65eb19_1_3036" );
   mainElement.appendChild(linksElement2);
-
+*/
 }
 
+function getNews(){
+  var query = "apple";
+  const newsUrl = 'https://scai.herokuapp.com/v2/everything?q=' + query + '&apiKey=992f49204d7647d2bfcfd2a8089759a1';
+
+  fetch(newsUrl, {
+    method: "GET",
+    headers: {
+      "type": "NEWS"
+    },
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+}
