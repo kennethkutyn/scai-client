@@ -37,7 +37,7 @@ function submitForm() {
   // Create a new h1 element
   const loadingElement = document.createElement("h1");
   // Set the inner text to "loading"
-  loadingElement.innerText = "Loading...";
+  loadingElement.innerText = "Loading. This will take about 30 seconds.";
   // Set the ID attribute to "loading"
   loadingElement.setAttribute("id", "loading");
   // Append the h1 element to the main element
@@ -58,15 +58,19 @@ function submitForm() {
   })
 })
 .then(response => response.json())
-.then(data => responseReady(data.choices));
+.then(data => responseReady(data.choices, companyNameInput));
 
 }
 
-function responseReady(data) {
+function responseReady(data, companyNameInput) {
   console.log(data);
-  document.getElementById('loading').remove();
+
+  getNews(companyNameInput);
 
   const mainElement = document.getElementById("main");
+  mainElement.style.display = "none";
+
+  
   // Create a new h1 element
   const responseElement = document.createElement("p");
   // Set the inner text to "loading"
@@ -76,7 +80,6 @@ function responseReady(data) {
   // Append the h1 element to the main element
   mainElement.appendChild(responseElement);
 
-  document.getElementById("helpful-links").style.display = "block";
 
 
 
@@ -109,9 +112,9 @@ function responseReady(data) {
 */
 }
 
-function getNews(){
-  var query = "apple";
-  const newsUrl = 'https://scai.herokuapp.com/v2/everything?q=' + query + '&apiKey=992f49204d7647d2bfcfd2a8089759a1';
+function getNews(company){
+  
+  const newsUrl = 'https://scai.herokuapp.com/search-news?text=' +  company + '&api-key=c3e5517153c24a58b91d694115234283';
 
   fetch(newsUrl, {
     method: "GET",
@@ -120,6 +123,23 @@ function getNews(){
     },
   })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => handleNews(data))
     .catch(error => console.error(error));
+}
+
+function handleNews(data){
+  console.log(data);
+  document.getElementById('loading').remove();
+
+  const mainElement = document.getElementById("main");
+  mainElement.style.display = "block";
+  document.getElementById("helpful-links").style.display = "block";
+  mainElement.style.display = "block";
+  document.getElementById("linkURL1").innerHTML = data.news[0].title;
+  document.getElementById("linkURL2").innerHTML = data.news[1].title;
+  document.getElementById("linkURL3").innerHTML = data.news[2].title;
+  document.getElementById("linkURL1").href = data.news[0].url;
+  document.getElementById("linkURL2").href = data.news[1].url;
+  document.getElementById("linkURL3").href = data.news[2].url;
+  document.getElementById("news").style.display = "block";
 }
