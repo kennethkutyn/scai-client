@@ -17,6 +17,12 @@ body {
     margin: 0 auto;
     padding: 2rem;
   }
+
+  .news-links {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
   
   p {
     font-size: 1.2rem;

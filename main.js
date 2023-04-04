@@ -114,7 +114,7 @@ function responseReady(data, companyNameInput) {
 
 function getNews(company){
   
-  const newsUrl = 'https://scai.herokuapp.com/search-news?text=' +  company + '&api-key=c3e5517153c24a58b91d694115234283';
+  const newsUrl = 'https://scai.herokuapp.com/search-news?text=' +  company + '&sort=sentiment&api-key=c3e5517153c24a58b91d694115234283';
 
   fetch(newsUrl, {
     method: "GET",
