@@ -44,7 +44,7 @@ function submitForm() {
   mainElement.appendChild(loadingElement);
 
 
-  fetch("https://scai.herokuapp.com/v1/completions", {
+  fetch("https://scai.herokuapp.com/v1/chat/completions", {
   method: "POST",
   headers: {
     "Content-Type": "application/json", 
@@ -52,13 +52,15 @@ function submitForm() {
   },
   body: JSON.stringify({
     "model": "text-davinci-003",
-    "prompt": prompt,
+    messages: [
+            {"role": "user", "content": combinedPrompt}
+          ],
     "max_tokens": 1000,
     "temperature": 0.7
   })
 })
 .then(response => response.json())
-.then(data => responseReady(data.choices, companyNameInput));
+.then(data => responseReady(data.choices[0].message.content, companyNameInput));
 
 }
 
