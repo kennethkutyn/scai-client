@@ -53,7 +53,7 @@ function submitForm() {
   body: JSON.stringify({
     "model": "text-davinci-003",
     messages: [
-            {"role": "user", "content": combinedPrompt}
+            {"role": "user", "content": prompt}
           ],
     "max_tokens": 1000,
     "temperature": 0.7
