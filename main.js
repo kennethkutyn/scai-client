@@ -22,13 +22,11 @@ function submitForm() {
   const prompt = 'Provide a briefing doc for a sales person at amplitude analytics to talk to the ' + role + ' of ' + companyNameInput + '. Include the following sections:' +
                   '1. company background - 2-3 sentences on what ' + companyNameInput + ' does, their products, and their business model, and if they have a parent company' +
                   '2. Trends - list 2-3 trends in  ' + companyNameInput + 's industry' +
-                  '3. Competitors - list ' + companyNameInput + '  top 3 direct competitors, and mention if there is a well-known internation company with a similar business model ' +
-                  '4. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
-                  '4. Tech Stack - brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store and analyze user behaviour. Only include software products that you have a high degree of certainty they use. Dont list any products just because they are commonly used for similar purposes or similar companies.' +
-                  '5. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases. ' +
-                  '6. Competition - mention 3 specific features or solutions of Amplitude  that will be relevant for the ' + role + ' of ' + companyNameInput + ' where Amplitude has a competitive advantage over other analytics solutions' +
-                  '7. Objections - Identify 3 objections the ' + role + ' might have' +
-                  '8. Value selling - identify 3 key ways Amplitude can drive value for this persona and company, specifically as it relates to analysis of their customer experiences';
+                  '3. Competitors - list ' + companyNameInput + '  top 3 direct competitors, and mention if there is a well-known internation company with a similar business model ' //+
+                  //'4. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
+                  //'4. Tech Stack - brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store and analyze user behaviour. Only include software products that you have a high degree of certainty they use. Dont list any products just because they are commonly used for similar purposes or similar companies.' +
+                  //'5. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases. ' +
+                  //'6. Value selling - identify 3 key ways Amplitude can drive value for this persona and company, specifically as it relates to analysis of their customer experiences';
 
   document.getElementById('input-form').remove();
   document.getElementById('app-description').remove()
@@ -43,9 +41,6 @@ function submitForm() {
   // Append the h1 element to the main element
   mainElement.appendChild(loadingElement);
 
-  const prompt2 = "hello how are you?";
-
-
   fetch("https://scai.herokuapp.com/v1/chat/completions", {
   method: "POST",
   headers: {
@@ -55,7 +50,7 @@ function submitForm() {
   body: JSON.stringify({
           model: "gpt-3.5-turbo",
           messages: [
-            {"role": "user", "content": prompt2}
+            {"role": "user", "content": prompt}
           ],
           max_tokens: 1000,
           temperature: 0.7
@@ -78,7 +73,7 @@ function responseReady(data, companyNameInput) {
   // Create a new h1 element
   const responseElement = document.createElement("p");
   // Set the inner text to "loading"
-  responseElement.innerText = data[0].text;
+  responseElement.innerText = data;
   // Set the ID attribute to "loading"
   responseElement.setAttribute("id", "response");
   // Append the h1 element to the main element
