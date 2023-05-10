@@ -53,7 +53,7 @@ function submitForm() {
   body: JSON.stringify({
           model: "gpt-3.5-turbo",
           messages: [
-            {"role": "user", "content": prompt}
+            {"role": "user", "content": "Provide a briefing doc for a sales person at amplitude analytics to talk to the CEO of Tesla"}
           ],
           max_tokens: 1000,
           temperature: 0.7
