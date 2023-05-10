@@ -43,6 +43,8 @@ function submitForm() {
   // Append the h1 element to the main element
   mainElement.appendChild(loadingElement);
 
+  const prompt2 = "hello how are you?";
+
 
   fetch("https://scai.herokuapp.com/v1/chat/completions", {
   method: "POST",
@@ -53,7 +55,7 @@ function submitForm() {
   body: JSON.stringify({
           model: "gpt-3.5-turbo",
           messages: [
-            {"role": "user", "content": "Provide a briefing doc for a sales person at amplitude analytics to talk to the CEO of Tesla"}
+            {"role": "user", "content": prompt2}
           ],
           max_tokens: 1000,
           temperature: 0.7
