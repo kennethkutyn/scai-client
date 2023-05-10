@@ -47,7 +47,7 @@ function submitForm() {
   fetch("https://scai.herokuapp.com/v1/completions", {
   method: "POST",
   headers: {
-    //"Content-Type": "application/json", 
+    "Content-Type": "application/json", 
     "type": "AI"
   },
   body: JSON.stringify({
