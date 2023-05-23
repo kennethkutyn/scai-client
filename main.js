@@ -19,15 +19,18 @@ function submitForm() {
   console.log('Prospect Role:', role);
   console.log('Company Name:', companyNameInput);
 
-  const prompt = 'Provide a briefing doc for a sales person at amplitude analytics to talk to the ' + role + ' of ' + companyNameInput + '. Include the following sections:' +
+  const prompt1 = 'Provide a briefing doc for a sales person at amplitude analytics to talk to the ' + role + ' of ' + companyNameInput + '. Include the following sections:' +
                   '1. company background - 2-3 sentences on what ' + companyNameInput + ' does, their products, and their business model, and if they have a parent company' +
                   '2. Trends - list 2-3 trends in  ' + companyNameInput + 's industry' +
-                  '3. Competitors - list ' + companyNameInput + '  top 3 direct competitors, and mention if there is a well-known internation company with a similar business model ' //+
-                  //'4. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
-                  //'4. Tech Stack - brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store and analyze user behaviour. Only include software products that you have a high degree of certainty they use. Dont list any products just because they are commonly used for similar purposes or similar companies.' +
-                  //'5. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases. ' +
-                  //'6. Value selling - identify 3 key ways Amplitude can drive value for this persona and company, specifically as it relates to analysis of their customer experiences';
+                  '3. Competitors - list ' + companyNameInput + '  top 3 direct competitors, and mention if there is a well-known internation company with a similar business model ';
+                  
 
+  const prompt2 = 'Provide a briefing doc for a sales person at amplitude analytics to talk to the ' + role + ' of ' + companyNameInput + '. There should be no title to the doc. Include the following sections:' +
+                  '4. Priorities for ' + role + ' - 3 sentences on the likely focus/priorities for this person in this company' +
+                  '5. Tech Stack - brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store and analyze user behaviour. Only include software products that you have a high degree of certainty they use. Dont list any products just because they are commonly used for similar purposes or similar companies.' +
+                  '6. Amplitude use cases - Identify the top 3 use cases for Amplitude product that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases. ' +
+                  '7. Value selling - identify 3 key ways Amplitude can drive value for this persona and company, specifically as it relates to analysis of their customer experiences';
+  
   document.getElementById('input-form').remove();
   document.getElementById('app-description').remove()
   // Get the element with ID "Main"
@@ -50,7 +53,7 @@ function submitForm() {
   body: JSON.stringify({
           model: "gpt-3.5-turbo",
           messages: [
-            {"role": "user", "content": prompt}
+            {"role": "user", "content": prompt1}
           ],
           max_tokens: 1000,
           temperature: 0.7
