@@ -16,6 +16,8 @@
 
 
     <main id="main">
+
+      <div id="input">
       <p id="app-description">
         Use this app to quickly generate a briefing doc for an upcoming prospect meeting. 
       </p>
@@ -46,7 +48,14 @@
 
         <button onclick="submitForm()">Submit</button>
       </div>
+    </div>
 
+<div id="loading" style="display: none">
+  <h1>Loading. This will take about 15 seconds</h1>
+</div>
+
+<div id="response-content" style="display: none">
+  <h1>Briefing</h1>
 
     <div class="container" onclick="toggleContent(this)">
       <div class="title" >
@@ -54,7 +63,7 @@
           <h2>Company Background</h2>
       </div>
       <div class="expanded content">
-          <p id="Company Background">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+          <p id="Company Background">Loading...</p>
       </div>
     </div>
 
@@ -64,7 +73,7 @@
       <h2>Industry Trends</h2>
   </div>
   <div class="content">
-      <p id="Industry Trends">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+      <p id="Industry Trends">Loading...</p>
   </div>
 </div>
 
@@ -74,7 +83,7 @@
   <h2>Competitors</h2>
 </div>
 <div class="content">
-  <p id="Competitors">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+  <p id="Competitors">Loading...</p>
 </div>
 </div>
 
@@ -84,7 +93,7 @@
   <h2>Priorities for this Persona</h2>
 </div>
 <div class="content">
-  <p id="Priorities">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+  <p id="Priorities">Loading...</p>
 </div>
 </div>
 
@@ -94,7 +103,7 @@
   <h2>Digital Innovation Strategy</h2>
 </div>
 <div class="content">
-  <p id="Digital Innovation Strategy">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+  <p id="Digital Innovation Strategy">Loading...</p>
 </div>
 </div>
 
@@ -104,7 +113,7 @@
   <h2>Tech Stack</h2>
 </div>
 <div class="content">
-  <p id="Tech Stack">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+  <p id="Tech Stack">Loading...</p>
 </div>
 </div>
 
@@ -114,9 +123,19 @@
   <h2>Use Cases</h2>
 </div>
 <div class="content">
-  <p id="Use Cases">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+  <p id="Use Cases">Loading...</p>
 </div>
 </div>
+
+<div class="container" onclick="toggleContent(this)">
+  <div class="title" >
+    <span class="arrow">&#x25B6;</span>
+    <h2>Discovery Questions</h2>
+  </div>
+  <div class="content">
+    <p id="Discovery">Loading...</p>
+  </div>
+  </div>
 
 <div class="container" onclick="toggleContent(this)">
 <div class="title" >
@@ -124,20 +143,11 @@
   <h2>Value Selling</h2>
 </div>
 <div class="content">
-  <p id="Value Selling">This is the content that will be hidden or shown when the container is collapsed or expanded.</p>
+  <p id="Value Selling">Loading...</p>
 </div>
 </div>
 
 
-
-    <div class="news-links" id="helpful-links" style="display: none">
-    <h1>Helpful Content</h1>
-    <ul>
-      <li><a href="https://docs.google.com/presentation/d/1MC6F2xUXEAXOEnp8-a9tnIfoXvXVXo4YUia6o0hQtz4/edit#slide=id.g119542d2666_0_0">Customer Stories by Industry</a></li>
-      <li><a href="https://docs.google.com/presentation/d/1Cva1vkCkVxa6NXW3y5FxpEP7BF-81YjTQGjGdoExwGE/edit#slide=id.g13e4e65eb19_1_3036">Value-selling Resources</a></li>
-      <li><a href=https://docs.google.com/document/d/18DCSH4s1OPAF9w3GVzog9BSSM7ssBb5GwhNiy1Cms4Q/edit>Demo Plan Template</a></li>
-    </ul>
-  </div>
 
   <h1>Helpful Content</h1>
   <div class="tile">
@@ -161,23 +171,26 @@
   </div>
 
   <h1>In The News</h1>
+  
   <div class="tile">
-
     <a id="linkURL1">
-      <h3 id="news1"></h3>
+      <h3 id="news1">Loading...</h3>
     </a>
   </div>
+  
   <div class="tile">
     <a id="linkURL2">
-      <h3 id="news2"></h3>
+      <h3 id="news2">Loading...</h3>
     </a>
   </div>
+  
   <div class="tile">
     <a id="linkURL3">
-      <h3 id="news3"></h3>
+      <h3 id="news3">Loading...</h3>
     </a>
   </div>
 
+</div>
 </main>
     <footer>
       <p>&copy; 2023 SC AI App</p>
