@@ -1,3 +1,7 @@
+amplitude.init('32ace3152113b258257617f25cc45d23');
+amplitude.track('Form Loaded');
+
+
 var numResponses = 0;
 
 function submitForm() {
@@ -16,7 +20,31 @@ function submitForm() {
     role = document.getElementById('other-text').value;
   }
 
+
+  if (document.getElementById('amprole1').checked) {
+    amprole = document.getElementById('amprole1').value;
+  } else if (document.getElementById('amprole2').checked) {
+    amprole = document.getElementById('amprole2').value;
+  } else if (document.getElementById('amprole3').checked) {
+    amprole = document.getElementById('amprole3').value;
+  } else if (document.getElementById('amprole4').checked) {
+    amprole = document.getElementById('amprole4').value;
+  }
+
+
   const companyNameInput = document.getElementById('company-name-input').value;
+
+
+  const identifyEvent = new amplitude.Identify();
+  identifyEvent.set('Amp Role', amprole);
+  amplitude.identify(identifyEvent);  
+  
+  
+  const eventProperties = {
+    ProspectRole: role,
+    Company: companyNameInput,
+    };
+  amplitude.track('Submit', eventProperties);
 
   document.getElementById("input").style.display = "none";
   document.getElementById("loading").style.display = "block";
@@ -57,32 +85,33 @@ function submitForm() {
 
 function responseReady(data, section) {
   numResponses = numResponses + 1;
-  if (numResponses = 6){
+  if (numResponses == 6){
     document.getElementById("response-content").style.display = "block";
     document.getElementById("loading").style.display = "none";
+    amplitude.track('Responses Loaded & Rendered');
+  }
+
+  if (numResponses == 9){
+    amplitude.track('All AI API calls returned');
   }
 
   document.getElementById(section).innerText = data;
-
-  //mainElement.style.display = "none";
-
-  // Create a new h1 element
-  //const responseElement = document.createElement("p");
-  // Set the inner text to "loading"
-  //responseElement.innerText = data;
-  // Set the ID attribute to "loading"
-  //responseElement.setAttribute("id", "response");
-  // Append the h1 element to the main element
-  //mainElement.appendChild(responseElement);
-  //mainElement.style.display = "block";
 
 }
 
 
 function toggleContent(container) {
+  if (!container.classList.contains('expanded')) {
+    const eventProperties = {
+      Section: container.querySelector('h2').textContent,
+      };
+    amplitude.track('Expand Section', eventProperties);
+    }
+  
   container.classList.toggle('expanded');
   const arrow = container.querySelector('.arrow');
   arrow.innerHTML = container.classList.contains('expanded') ? '&#x25BC;' : '&#x25B6;';
+  
 }
 
 function makeCall(prompt, section){
@@ -122,6 +151,7 @@ function getNews(company){
 }
 
 function handleNews(data){
+  amplitude.track('News Response Loaded');
   document.getElementById("linkURL1").innerHTML = data.news[0].title.slice(0, 90);
   document.getElementById("linkURL2").innerHTML = data.news[1].title.slice(0, 90);
   document.getElementById("linkURL3").innerHTML = data.news[2].title.slice(0, 90);

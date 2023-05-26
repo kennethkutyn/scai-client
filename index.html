@@ -4,7 +4,9 @@
     <title>AI Meeting Briefing</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script type="text/javascript">
+      !function(){"use strict";!function(e,t){var n=e.amplitude||{_q:[],_iq:{}};if(n.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var r=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,n){return function(r){e._q.push({name:t,args:Array.prototype.slice.call(n,0),resolve:r})}},o=function(e,t,n){e[t]=function(){if(n)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<y.length;t++)o(e,y[t],!1);for(var n=0;n<g.length;n++)o(e,g[n],!0)};n.invoked=!0;var a=t.createElement("script");a.type="text/javascript",a.integrity="sha384-TPZhteUkZj8CAyBx+GZZytBdkuKnhKsSKcCoVCq0QSteWf/Kw5Kb9oVFUROLE1l3",a.crossOrigin="anonymous",a.async=!0,a.src="https://cdn.amplitude.com/libs/analytics-browser-1.9.1-min.js.gz",a.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c);for(var u=function(){return this._q=[],this},l=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],p=0;p<l.length;p++)r(u,l[p]);n.Identify=u;for(var d=function(){return this._q=[],this},f=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],v=0;v<f.length;v++)r(d,f[v]);n.Revenue=d;var y=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(n),n.createInstance=function(e){return n._iq[e]={_q:[]},i(n._iq[e]),n._iq[e]},e.amplitude=n}}(window,document)}();
+      </script>
     <!-- Add a link to a CSS file for styling -->
     <link rel="stylesheet" href="style.css">
   </head>
@@ -22,6 +24,24 @@
         Use this app to quickly generate a briefing doc for an upcoming prospect meeting. 
       </p>
       <div id="input-form">
+        <h1>Your Role</h1>
+        <input type="radio" id="amprole1" name="amproleoptions" value="AE">
+        <label for="amprole1">AE</label><br>
+
+        <input type="radio" id="amprole2" name="amproleoptions" value="SC">
+        <label for="amprole2">SC</label><br>
+
+        <input type="radio" id="amprole3" name="amproleoptions" value="SDR">
+        <label for="amprole3">SDR</label><br>
+
+        <input type="radio" id="amprole4" name="amproleoptions" value="CSM">
+        <label for="amprole4">CSM</label><br>
+
+
+        
+        
+        
+        
         <h1>Prospect Details</h1>
         <input type="radio" id="option1" name="options" value="Product Manager">
         <label for="option1">Product Manager</label><br>
