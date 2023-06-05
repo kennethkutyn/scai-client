@@ -16,6 +16,8 @@ function submitForm() {
     role = document.getElementById('option4').value;
   } else if (document.getElementById('option5').checked) {
     role = document.getElementById('option5').value;
+  } else if (document.getElementById('option6').checked) {
+    role = document.getElementById('option6').value;
   } else {
     role = document.getElementById('other-text').value;
   }
