@@ -91,6 +91,8 @@ function responseReady(data, section) {
     document.getElementById("response-content").style.display = "block";
     document.getElementById("loading").style.display = "none";
     amplitude.track('Responses Loaded & Rendered');
+    document.getElementById("popup").style.display = "block";
+
   }
 
   if (numResponses == 9){
@@ -160,4 +162,17 @@ function handleNews(data){
   document.getElementById("linkURL1").href = data.news[0].url;
   document.getElementById("linkURL2").href = data.news[1].url;
   document.getElementById("linkURL3").href = data.news[2].url;
+}
+
+
+function feedbackMinutes(minutes) {
+  const eventProperties = {
+    time : minutes,
+    };
+  amplitude.track('Feedback sent', eventProperties);
+  document.getElementById("popup").style.display = "none";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
 }

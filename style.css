@@ -119,3 +119,54 @@ body {
 .tile:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
+#popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  height: 280px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+}
+
+#popup .title-bar {
+  background-color: blue;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#popup .close-button {
+  width: 5px;
+  height: 5px;
+  background-color: blue;
+  margin: 0px;
+  margin-left: 100px;
+  font-size: 12px;
+  
+}
+
+#popup .content {
+  margin-bottom: 10px;
+
+}
+
+#popup .buttons {
+  text-align: center;
+
+}
+
+#popup .buttons button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  cursor: pointer;
+}
