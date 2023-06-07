@@ -31,6 +31,8 @@ function submitForm() {
     amprole = document.getElementById('amprole3').value;
   } else if (document.getElementById('amprole4').checked) {
     amprole = document.getElementById('amprole4').value;
+  } else if (document.getElementById('amprole5').checked) {
+    amprole = document.getElementById('amprole5').value;
   }
 
 
