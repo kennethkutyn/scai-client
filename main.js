@@ -60,8 +60,8 @@ function submitForm() {
       [
         'Provide a high level overview (2-3 sentences) on the company background of ' + companyNameInput + ', their products, and their business model, and if they have a parent company', 
         'List 2-3 trends in  ' + companyNameInput + 's industry, in numbered bullet points. No need for extra introductory text.',
-        'list ' + companyNameInput + '  top 3 direct competitors in numbered bullet points, and mention if there is a well-known internation company with a similar business model',
-        'Whare are likely priorities for the ' + role + ' at ' + companyNameInput + ' - 3 sentences on the likely focus/priorities for this person in this company, in numbered bullet points',
+        'list ' + companyNameInput + '  top 3 direct competitors in numbered bullet points, and mention if there is a well-known international company with a similar business model',
+        'What are likely priorities for the ' + role + ' at ' + companyNameInput + ' - 3 sentences on the likely focus/priorities for this person in this company, in numbered bullet points',
         'Brief me on ' + companyNameInput + 's digital innovation strategy',
         'Brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store, and analyze user behaviour. List in numbered bullet points please. ',
         'Provide 3 open-ended discovery questions that a salesperson at Amplitude might use to better understand the opportunity for Amplitude products to be used at ' + companyNameInput + ' by the ' + role,
