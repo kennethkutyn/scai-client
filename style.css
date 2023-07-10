@@ -111,12 +111,67 @@ body {
   vertical-align: top;
 }
 
+.tile p {
+  padding: 3px;
+}
+
+.jobtile {
+  display: inline-block;
+  width: 25%;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 100px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+  vertical-align: top;
+}
+
+.jobtile a {
+  text-decoration: none;
+  color: #333;
+}
+
+.tile2 {
+  display: inline-block;
+  width: 92%;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 74px;
+  text-align: left;
+  transition: box-shadow 0.3s;
+  vertical-align: top;
+}
+
+.tile-content {
+  display: flex;
+  align-items: center;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.image-content {
+  margin-left: 20px;
+}
+
 .tile a {
   text-decoration: none;
   color: #333;
 }
 
 .tile:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.jobtile:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.tile2:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 

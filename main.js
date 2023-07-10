@@ -55,6 +55,9 @@ function submitForm() {
 
   getNews(companyNameInput);
 
+  const companyDataPromise = getCompanyData(companyNameInput);
+  companyDataPromise.then(companyData => {handleCompanyData(companyData);})
+
 
   const promptArray = [
       [
@@ -62,7 +65,7 @@ function submitForm() {
         'List 2-3 trends in  ' + companyNameInput + 's industry, in numbered bullet points. No need for extra introductory text.',
         'list ' + companyNameInput + '  top 3 direct competitors in numbered bullet points, and mention if there is a well-known international company with a similar business model',
         'What are likely priorities for the ' + role + ' at ' + companyNameInput + ' - 3 sentences on the likely focus/priorities for this person in this company, in numbered bullet points',
-        'Brief me on ' + companyNameInput + 's digital innovation strategy',
+        'Brief me on ' + companyNameInput + 's digital innovation strategy. Use data from the most recent 10k filing that you have access to, if applicable',
         'Brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store, and analyze user behaviour. List in numbered bullet points please. ',
         'Provide 3 open-ended discovery questions that a salesperson at Amplitude might use to better understand the opportunity for Amplitude products to be used at ' + companyNameInput + ' by the ' + role,
         'Identify the top 3 use cases in numbered bullet points for Amplitude products that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases.',
@@ -128,7 +131,7 @@ function makeCall(prompt, section){
       "type": "AI"
     },
     body: JSON.stringify({
-            model: "gpt-3.5-turbo",
+            model: "gpt-4", //"gpt-3.5-turbo",
             messages: [
               {"role": "user", "content": prompt}
             ],
@@ -139,6 +142,44 @@ function makeCall(prompt, section){
   .then(response => response.json())
   .then(data => responseReady(data.choices[0].message.content, section));
 }
+
+
+function getCompanyData(company){
+  
+    const companyUrl = 'https://scai.herokuapp.com/proxycurl/api/linkedin/company?categories=include&funding_data=include&extra=include&exit_data=include&acquisitions=include&url=https://www.linkedin.com/company/' + company + '/&use_cache=if-present';
+    return fetch(companyUrl, {
+      method: "GET",
+      headers: {
+        "type": "COMPANY"
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Perform any necessary data manipulation or processing here
+      return data; // Return the data to propagate it to the next `.then` callback
+    })
+    .catch(error => console.error(error));
+  }
+
+
+  function getJobsData(companyID){
+  
+    const jobsUrl = 'https://scai.herokuapp.com/proxycurl/api/v2/linkedin/company/job?geo_id=92000000&keyword=data product&search_id=' + companyID;
+    return fetch(jobsUrl, {
+      method: "GET",
+      headers: {
+        "type": "JOBS"
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Perform any necessary data manipulation or processing here
+      return data; // Return the data to propagate it to the next `.then` callback
+    })
+    .catch(error => console.error(error));
+  }
+
+
 
 
 function getNews(company){
@@ -166,6 +207,28 @@ function handleNews(data){
   document.getElementById("linkURL3").href = data.news[2].url;
 }
 
+function handleCompanyData(data){
+  var numemployees;
+  if(data.company_size[0] == '10001'){numemployees = ">10,000"}else{numemployees = data.company_size[0]};
+  document.getElementById("companyname").innerHTML = "Company: " + data.name;
+  document.getElementById("companysize").innerHTML = "Company Size: " + numemployees;
+  //document.getElementById("hqlocation").innerHTML = "Location: " + data.hq.city;
+  document.getElementById("founded").innerHTML = "Founded: " + data.founded_year;
+  document.getElementById("companystatus").innerHTML = "Status: " + data.company_type;
+  document.getElementById("imgsrc").src = data.profile_pic_url;
+  const jobsDataPromise = getJobsData(data.linkedin_internal_id);
+  jobsDataPromise.then(jobsData => {handleJobsData(jobsData);})
+
+}
+
+function handleJobsData(data){
+  document.getElementById("job1").innerHTML = data.job[0].job_title;
+  document.getElementById("job2").innerHTML = data.job[1].job_title;
+  document.getElementById("job3").innerHTML = data.job[2].job_title;
+  document.getElementById("joblinkURL1").href = data.job[0].job_url;
+  document.getElementById("joblinkURL2").href = data.job[1].job_url;
+  document.getElementById("joblinkURL3").href = data.job[2].job_url;
+}
 
 function feedbackMinutes(minutes) {
   const eventProperties = {
