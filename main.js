@@ -176,7 +176,7 @@ function getCompanyData(company){
       // Perform any necessary data manipulation or processing here
       return data; // Return the data to propagate it to the next `.then` callback
     })
-    .catch(error => console.error(error));
+    .catch(error => console.error("the error is: " + error));
   }
 
 
@@ -208,17 +208,19 @@ function handleNews(data){
 }
 
 function handleCompanyData(data){
-  var numemployees;
-  if(data.company_size[0] == '10001'){numemployees = ">10,000"}else{numemployees = data.company_size[0]};
+  if (data.name == "Not Found"){
+    console.log('no company found');
+    document.getElementById("overview").style.display = "none";
+    document.getElementById("jobdata").style.display = "none";
+  }else{
   document.getElementById("companyname").innerHTML = "Company: " + data.name;
-  document.getElementById("companysize").innerHTML = "Company Size: " + numemployees;
-  //document.getElementById("hqlocation").innerHTML = "Location: " + data.hq.city;
+  document.getElementById("companysize").innerHTML = "Company Size: " + data.company_size_on_linkedin;
   document.getElementById("founded").innerHTML = "Founded: " + data.founded_year;
   document.getElementById("companystatus").innerHTML = "Status: " + data.company_type;
   document.getElementById("imgsrc").src = data.profile_pic_url;
   const jobsDataPromise = getJobsData(data.linkedin_internal_id);
   jobsDataPromise.then(jobsData => {handleJobsData(jobsData);})
-
+  }
 }
 
 function handleJobsData(data){
