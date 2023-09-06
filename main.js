@@ -69,6 +69,7 @@ function submitForm() {
         'Brifely list the technology stack and software products that ' + companyNameInput + '  uses to build their products and caputure, store, and analyze user behaviour. List in numbered bullet points please. ',
         'Provide 3 open-ended discovery questions that a salesperson at Amplitude might use to better understand the opportunity for Amplitude products to be used at ' + companyNameInput + ' by the ' + role,
         'Identify the top 3 use cases in numbered bullet points for Amplitude products that might interest the ' +role +' at ' + companyNameInput + 'and specifically mention Amplitude features that will address those use cases.',
+        'Identify 3 ideas for digital experiments or AB tests that might be interesting for the ' +role +' at ' + companyNameInput + '. The ideas could be in any of the companys products',
         'Identify 3 key ways Amplitude can drive value for ' + role + ' at ' + companyNameInput + ', specifically as it relates to analysis of their customer experiences. Format your response in numbered bullet points.'
       ],
       [
@@ -79,7 +80,8 @@ function submitForm() {
         "Digital Innovation Strategy",
         "Tech Stack",
         "Discovery",
-        "Use Cases",
+        "Analytics Use Cases",
+        "Experiment Use Cases",
         "Value Selling"
       ]
   ]
