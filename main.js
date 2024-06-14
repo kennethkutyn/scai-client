@@ -53,7 +53,7 @@ function submitForm() {
   document.getElementById("input").style.display = "none";
   document.getElementById("loading").style.display = "block";
 
-  getNews(companyNameInput);
+  //getNews(companyNameInput);
 
   const companyDataPromise = getCompanyData(companyNameInput);
   companyDataPromise.then(companyData => {handleCompanyData(companyData);})
@@ -220,8 +220,8 @@ function handleCompanyData(data){
   document.getElementById("founded").innerHTML = "Founded: " + data.founded_year;
   document.getElementById("companystatus").innerHTML = "Status: " + data.company_type;
   document.getElementById("imgsrc").src = data.profile_pic_url;
-  const jobsDataPromise = getJobsData(data.linkedin_internal_id);
-  jobsDataPromise.then(jobsData => {handleJobsData(jobsData);})
+  //const jobsDataPromise = getJobsData(data.linkedin_internal_id);
+  //jobsDataPromise.then(jobsData => {handleJobsData(jobsData);})
   }
 }
 
