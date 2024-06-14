@@ -138,7 +138,7 @@ function makeCall(prompt, section){
       "type": "AI"
     },
     body: JSON.stringify({
-            model: "gpt-4", //"gpt-3.5-turbo",
+            model: "gpt-4o", //"gpt-3.5-turbo",
             messages: [
               {"role": "user", "content": prompt}
             ],
