@@ -53,10 +53,10 @@ function submitForm() {
   document.getElementById("input").style.display = "none";
   document.getElementById("loading").style.display = "block";
 
-  //getNews(companyNameInput);
+  getNews(companyNameInput);
 
-  //const companyDataPromise = getCompanyData(companyNameInput);
-  //companyDataPromise.then(companyData => {handleCompanyData(companyData);})
+  const companyDataPromise = getCompanyData(companyNameInput);
+  companyDataPromise.then(companyData => {handleCompanyData(companyData);})
 
 
   const promptArray = [
@@ -86,17 +86,18 @@ function submitForm() {
       ]
   ]
 
-  /*for (let i=0; i<promptArray[0].length; i++){
-    makeCall(promptArray[0][i], promptArray[1][i]);
-  }*/
-
-  for (let i=0; i<2; i++){
+  for (let i=0; i<promptArray[0].length; i++){
     makeCall(promptArray[0][i], promptArray[1][i]);
   }
+
+  /*for (let i=0; i<2; i++){
+    makeCall(promptArray[0][i], promptArray[1][i]);
+  }*/
 
 }
 
 function responseReady(data, section) {
+  console.log("responseReady");
   numResponses = numResponses + 1;
   if (numResponses == 6){
     document.getElementById("response-content").style.display = "block";
@@ -224,8 +225,8 @@ function handleCompanyData(data){
   document.getElementById("founded").innerHTML = "Founded: " + data.founded_year;
   document.getElementById("companystatus").innerHTML = "Status: " + data.company_type;
   document.getElementById("imgsrc").src = data.profile_pic_url;
-  //const jobsDataPromise = getJobsData(data.linkedin_internal_id);
-  //jobsDataPromise.then(jobsData => {handleJobsData(jobsData);})
+  const jobsDataPromise = getJobsData(data.linkedin_internal_id);
+  jobsDataPromise.then(jobsData => {handleJobsData(jobsData);})
   }
 }
 
