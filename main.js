@@ -55,8 +55,8 @@ function submitForm() {
 
   //getNews(companyNameInput);
 
-  const companyDataPromise = getCompanyData(companyNameInput);
-  companyDataPromise.then(companyData => {handleCompanyData(companyData);})
+  //const companyDataPromise = getCompanyData(companyNameInput);
+  //companyDataPromise.then(companyData => {handleCompanyData(companyData);})
 
 
   const promptArray = [
