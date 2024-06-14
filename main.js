@@ -86,7 +86,11 @@ function submitForm() {
       ]
   ]
 
-  for (let i=0; i<promptArray[0].length; i++){
+  /*for (let i=0; i<promptArray[0].length; i++){
+    makeCall(promptArray[0][i], promptArray[1][i]);
+  }*/
+
+  for (let i=0; i<2; i++){
     makeCall(promptArray[0][i], promptArray[1][i]);
   }
 
