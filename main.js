@@ -1,5 +1,5 @@
-//amplitude.init('32ace3152113b258257617f25cc45d23');
-//amplitude.track('Form Loaded');
+amplitude.init('32ace3152113b258257617f25cc45d23');
+amplitude.track('Form Loaded');
 
 
 var numResponses = 0;
@@ -39,16 +39,16 @@ function submitForm() {
   const companyNameInput = document.getElementById('company-name-input').value;
 
 
-  //const identifyEvent = new amplitude.Identify();
-  //identifyEvent.set('Amp Role', amprole);
-  //amplitude.identify(identifyEvent);  
+  const identifyEvent = new amplitude.Identify();
+  identifyEvent.set('Amp Role', amprole);
+  amplitude.identify(identifyEvent);  
   
   
   const eventProperties = {
     ProspectRole: role,
     Company: companyNameInput,
     };
-  //amplitude.track('Submit', eventProperties);
+  amplitude.track('Submit', eventProperties);
 
   document.getElementById("input").style.display = "none";
   document.getElementById("loading").style.display = "block";
@@ -102,13 +102,13 @@ function responseReady(data, section) {
   if (numResponses == 6){
     document.getElementById("response-content").style.display = "block";
     document.getElementById("loading").style.display = "none";
-    //amplitude.track('Responses Loaded & Rendered');
+    amplitude.track('Responses Loaded & Rendered');
     document.getElementById("popup").style.display = "block";
 
   }
 
   if (numResponses == 9){
-    //amplitude.track('All AI API calls returned');
+    amplitude.track('All AI API calls returned');
   }
 
   document.getElementById(section).innerText = data;
@@ -121,7 +121,7 @@ function toggleContent(container) {
     const eventProperties = {
       Section: container.querySelector('h2').textContent,
       };
-    //amplitude.track('Expand Section', eventProperties);
+    amplitude.track('Expand Section', eventProperties);
     }
   
   container.classList.toggle('expanded');
@@ -205,7 +205,7 @@ function getNews(company){
 }
 
 function handleNews(data){
-  //amplitude.track('News Response Loaded');
+  amplitude.track('News Response Loaded');
   document.getElementById("linkURL1").innerHTML = data.news[0].title.slice(0, 90);
   document.getElementById("linkURL2").innerHTML = data.news[1].title.slice(0, 90);
   document.getElementById("linkURL3").innerHTML = data.news[2].title.slice(0, 90);
@@ -243,7 +243,7 @@ function feedbackMinutes(minutes) {
   const eventProperties = {
     time : minutes,
     };
-  //amplitude.track('Feedback sent', eventProperties);
+  amplitude.track('Feedback sent', eventProperties);
   document.getElementById("popup").style.display = "none";
 }
 
